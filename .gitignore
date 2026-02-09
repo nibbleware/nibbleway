@@ -1,0 +1,15 @@
+# Node
+node_modules/
+dist/
+.env
+
+# MacOS
+.DS_Store
+
+# Flutter/Dart
+.dart_tool/
+.packages
+.pub/
+build/
+ios/Flutter/App.framework
+ios/Flutter/Flutter.framework

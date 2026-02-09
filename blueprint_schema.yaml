@@ -1,0 +1,47 @@
+# Nibbleway Blueprint Schema (v0.1)
+
+version: "0.1"
+project: "my-agent-system"
+
+# 1. Agents: The actors in the system
+agents:
+  - id: "triage-agent"
+    name: "Triage Agent"
+    model: "claude-3-5-sonnet-20240620"
+    system_prompt: "You are a helpful triage assistant. Classify incoming requests."
+    # capabilities: Defines what this agent is allowed to do
+    capabilities:
+      permissions:
+        - "read-only" # Can read context, cannot call write tools
+      allowed_tools:
+        - "linear_read"
+        - "github_read"
+
+  - id: "billing-agent"
+    name: "Billing Specialist"
+    model: "gpt-4o"
+    system_prompt: "You resolve billing disputes."
+    capabilities:
+      permissions:
+        - "write"
+      allowed_tools:
+        - "stripe_refund"
+        - "stripe_invoice"
+
+# 2. Flows: The allowed communication paths
+flows:
+  - from: "triage-agent"
+    to: "billing-agent"
+    condition: "topic == 'billing'"
+
+# 3. Rails: Global or specific guardrails
+rails:
+  - id: "no-pii"
+    type: "pii_scrub"
+    sensitivity: "high"
+    action: "redact" # or 'block'
+
+  - id: "budget-limit"
+    type: "cost_control"
+    limit_usd: 5.00
+    window: "daily"
