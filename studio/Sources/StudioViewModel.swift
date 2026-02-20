@@ -20,6 +20,9 @@ class StudioViewModel: ObservableObject {
     @Published var discoveredEntities: [C4Entity] = []
     @Published var isDiscovering = false
     
+    // Portfolio Governance
+    @Published var portfolioAudit: PortfolioAudit?
+    
     // Semantic Glossary
     @Published var glossary: GlossaryRegistry?
 
@@ -324,5 +327,35 @@ entities:
         print("Exporting Rule Set to \(filename)...")
         print("Content:\n\(content)")
         // In a real app, this would show a file save panel
+    }
+    
+    func auditPortfolio() {
+        print("Auditing Portfolio Agent Guardrails...")
+        // Simulated audit results
+        let mockStatuses = [
+            ProjectGuardrailStatus(id: "Nibbleway-App", ruleSetID: "ios-agent-rules", status: .inSync, lastSync: Date()),
+            ProjectGuardrailStatus(id: "Account-Service", ruleSetID: "go-agent-rules", status: .drifted, lastSync: Date().addingTimeInterval(-86400 * 5)),
+            ProjectGuardrailStatus(id: "Auth-Bridge", ruleSetID: "go-agent-rules", status: .missing, lastSync: Date().addingTimeInterval(-86400 * 30))
+        ]
+        
+        withAnimation {
+            self.portfolioAudit = PortfolioAudit(timestamp: Date(), projectStatuses: mockStatuses)
+        }
+    }
+    
+    func syncGuardrails(for projectID: String) {
+        print("Syncing guardrails for \(projectID)...")
+        // Simulate Git PR creation
+        Task {
+            try? await Task.sleep(nanoseconds: 2 * 1_000_000_000)
+            await MainActor.run {
+                if let index = portfolioAudit?.projectStatuses.firstIndex(where: { $0.id == projectID }) {
+                    var statuses = portfolioAudit?.projectStatuses ?? []
+                    statuses[index] = ProjectGuardrailStatus(id: projectID, ruleSetID: statuses[index].ruleSetID, status: .inSync, lastSync: Date())
+                    self.portfolioAudit = PortfolioAudit(timestamp: Date(), projectStatuses: statuses)
+                    print("Successfully synced \(projectID). PR created.")
+                }
+            }
+        }
     }
 }

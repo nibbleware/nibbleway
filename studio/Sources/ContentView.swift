@@ -166,6 +166,40 @@ struct ContentView: View {
                     .buttonStyle(.bordered)
                 }
                 
+                Section("Portfolio Dashboard") {
+                    if let audit = viewModel.portfolioAudit {
+                        ForEach(audit.projectStatuses) { status in
+                            HStack {
+                                VStack(alignment: .leading) {
+                                    Text(status.id)
+                                        .font(.system(size: 10, weight: .bold))
+                                    Text(status.ruleSetID)
+                                        .font(.system(size: 8))
+                                        .foregroundStyle(.secondary)
+                                }
+                                Spacer()
+                                Circle()
+                                    .fill(statusColor(status.status))
+                                    .frame(width: 8, height: 8)
+                                
+                                Button(action: { viewModel.syncGuardrails(for: status.id) }) {
+                                    Image(systemName: "arrow.triangle.2.circlepath")
+                                        .font(.system(size: 10))
+                                }
+                                .buttonStyle(.borderless)
+                            }
+                            .padding(.vertical, 2)
+                        }
+                    } else {
+                        Button("Run Portfolio Audit") {
+                            viewModel.auditPortfolio()
+                        }
+                        .font(.system(size: 10, weight: .bold))
+                        .buttonStyle(.bordered)
+                        .controlSize(.small)
+                    }
+                }
+                
                 if let ruleSets = viewModel.governance?.agentRuleSets {
                     Section("Agent Guardrails") {
                         ForEach(ruleSets) { ruleSet in
@@ -515,6 +549,17 @@ struct VisualEffectView: NSViewRepresentable {
         nsView.blendingMode = blendingMode
     }
 }
+
+extension ContentView {
+    private func statusColor(_ status: GuardrailDriftStatus) -> Color {
+        switch status {
+        case .inSync: return .green
+        case .drifted: return .orange
+        case .missing: return .red
+        }
+    }
+}
+
 
 #Preview {
     ContentView()

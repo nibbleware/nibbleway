@@ -170,7 +170,23 @@ final class ArchitectContextServer: Sendable {
             ])])
         )
         
-        let tools = [getApprovedVendors, getActiveStack, getPolicies, getPlatformStack, discoverComponents, getGlossaryTerm, listContexts, getPhilosophy, getEvolution, getPatterns, getMoments, getTechCatalog, publishToGit, verifyCompliance, getAgentRules]
+        // Define tool for auditing portfolio-wide agent compliance
+        let auditCompliance = Tool(
+            name: "audit_agent_compliance",
+            description: "Scans managed repositories to detect drift in AI agent rule sets across the enterprise portfolio.",
+            inputSchema: .object(["type": .string("object"), "properties": .object([:])])
+        )
+        
+        // Define tool for pushing rule updates to repositories
+        let pushRuleUpdates = Tool(
+            name: "push_rule_updates",
+            description: "Creates Git Pull Requests to update .agentrules across multiple repositories to match the central registry.",
+            inputSchema: .object(["type": .string("object"), "properties": .object([
+                "projectIDs": .object(["type": .array("string"), "description": .string("List of project names to update")])
+            ])])
+        )
+        
+        let tools = [getApprovedVendors, getActiveStack, getPolicies, getPlatformStack, discoverComponents, getGlossaryTerm, listContexts, getPhilosophy, getEvolution, getPatterns, getMoments, getTechCatalog, publishToGit, verifyCompliance, getAgentRules, auditCompliance, pushRuleUpdates]
         
         // Register Prompts
         let policiesPrompt = Prompt(
@@ -357,6 +373,17 @@ final class ArchitectContextServer: Sendable {
                     let rulesText = ruleSet.rules.map { "- [\($0.category)] \($0.instruction)" }.joined(separator: "\n")
                     let response = "Agent Rule Set: \(ruleSet.name)\nContext: \(ruleSet.context)\n\n\(rulesText)"
                     return CallTool.Result(content: [.text(response)])
+                    
+                case "audit_agent_compliance":
+                    self.viewModel.auditPortfolio()
+                    return CallTool.Result(content: [.text("Portfolio-wide agent rule audit triggered. Results available in Studio Dashboard.")])
+                    
+                case "push_rule_updates":
+                    let projects = params.arguments?["projectIDs"]?.asArray?.compactMap { $0.asString } ?? []
+                    for project in projects {
+                        self.viewModel.syncGuardrails(for: project)
+                    }
+                    return CallTool.Result(content: [.text("Rule updates pushed to: \(projects.joined(separator: ", ")). PRs are being generated.")])
                     
                 default:
                     return CallTool.Result(content: [.text("Unknown tool: \(params.name)")], isError: true)

@@ -325,6 +325,24 @@ struct AgentRuleSet: Codable, Identifiable {
     let rules: [AgentRule]
 }
 
+enum GuardrailDriftStatus: String, Codable {
+    case inSync = "In Sync"
+    case drifted = "Drifted"
+    case missing = "Missing"
+}
+
+struct ProjectGuardrailStatus: Codable, Identifiable {
+    let id: String // Project Name
+    let ruleSetID: String
+    let status: GuardrailDriftStatus
+    let lastSync: Date
+}
+
+struct PortfolioAudit: Codable {
+    let timestamp: Date
+    let projectStatuses: [ProjectGuardrailStatus]
+}
+
 struct GovernanceRegistry: Codable {
     let version: String
     let philosophy: ArchitecturalPhilosophy?
