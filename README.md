@@ -7,9 +7,9 @@
 
 ## Core Components
 
-1.  **The Blueprint**: A declarative definition of your agent system (Agents, Flows, Rails).
-2.  **The Rail**: A runtime proxy (MCP) that enforces the Blueprint.
-3.  **The Recorder**: A structured logger for observability.
+1.  **The Blueprint**: A declarative System of Record for Enterprise Architecture (C4 Model). It defines not just agents, but the vendors and infrastructure (Push, API Gateways, DBs) used across the organization.
+2.  **The Governance Layer**: Enforce architectural standards and security policies (PII, Data Sovereignty) at the design and runtime layers.
+3.  **The Studio**: A cinematic Command Center for the **Mobile Architect** to orchestrate code, AI agent usage, and architectural patterns. It serves as the gateway for delegating high-level design decisions to IDE-based agents.
 
 ## Getting Started
 

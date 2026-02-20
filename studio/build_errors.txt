@@ -1,0 +1,198 @@
+Building for debugging...
+[0/1] Write swift-version-29D1E07A359104D9.txt
+[2/4] Emitting module NibblewayStudioCore
+/Users/rickhohler/CODE/GITHUB/Nibbleware/nibbleway/studio/Sources/MCPManager.swift:112:1: [1;33mwarning: [1;39mextension declares a conformance of imported type 'Tool' to imported protocol 'Identifiable'; this will not behave correctly if the owners of 'MCP' introduce this conformance in the future[0;0m
+[0;36m110 |[0;0m 
+[0;36m111 |[0;0m // Extension to help with Tool identification
+[0;36m112 |[0;0m extension Tool: Identifiable {
+    [0;36m|[0;0m |- [1;33mwarning: [1;39mextension declares a conformance of imported type 'Tool' to imported protocol 'Identifiable'; this will not behave correctly if the owners of 'MCP' introduce this conformance in the future[0;0m
+    [0;36m|[0;0m `- [1;39mnote: [1;39madd '@retroactive' to silence this warning[0;0m
+[0;36m113 |[0;0m     public var id: String { name }
+[0;36m114 |[0;0m }
+[3/4] Compiling NibblewayStudioCore GraphSimulator.swift
+/Users/rickhohler/CODE/GITHUB/Nibbleware/nibbleway/studio/Sources/GraphSimulator.swift:41:53: [1;31merror: [1;39mcannot use optional chaining on non-optional value of type '[Relationship]'[0;0m
+ [0;36m39 |[0;0m         }
+ [0;36m40 |[0;0m         self.nodesByIdentifier = initializedNodes
+ [0;36m41 |[0;0m         self.relationships = [4;39mblueprint.relationships?[0;0m.map { GraphLink(sourceId: $0.source, targetId: $0.destination) } ?? []
+    [0;36m|[0;0m                                                     `- [1;31merror: [1;39mcannot use optional chaining on non-optional value of type '[Relationship]'[0;0m
+ [0;36m42 |[0;0m     }
+ [0;36m43 |[0;0m     
+
+/Users/rickhohler/CODE/GITHUB/Nibbleware/nibbleway/studio/Sources/GraphSimulator.swift:55:23: [1;31merror: [1;39mcannot convert value of type 'Int' to expected argument type 'SIMD2<Float16>'[0;0m
+ [0;36m53 |[0;0m         // 2. Calculate Repulsion (Coulomb's Law)
+ [0;36m54 |[0;0m         for i in 0..<identifiers.count {
+ [0;36m55 |[0;0m             for j in (i+1).<identifiers.count {
+    [0;36m|[0;0m                       `- [1;31merror: [1;39mcannot convert value of type 'Int' to expected argument type 'SIMD2<Float16>'[0;0m
+ [0;36m56 |[0;0m                 let idA = identifiers[i]
+ [0;36m57 |[0;0m                 let idB = identifiers[j]
+
+/Users/rickhohler/CODE/GITHUB/Nibbleware/nibbleway/studio/Sources/GraphSimulator.swift:55:27: [1;31merror: [1;39mbinary operator '.<' cannot be applied to operands of type 'SIMD2<Float16>' and 'Int'[0;0m
+ [0;36m53 |[0;0m         // 2. Calculate Repulsion (Coulomb's Law)
+ [0;36m54 |[0;0m         for i in 0..<identifiers.count {
+ [0;36m55 |[0;0m             for j in [4;39m(i+1)[0;0m.<[4;39midentifiers.count[0;0m {
+    [0;36m|[0;0m                           `- [1;31merror: [1;39mbinary operator '.<' cannot be applied to operands of type 'SIMD2<Float16>' and 'Int'[0;0m
+ [0;36m56 |[0;0m                 let idA = identifiers[i]
+ [0;36m57 |[0;0m                 let idB = identifiers[j]
+
+/Users/rickhohler/CODE/GITHUB/Nibbleware/nibbleway/studio/Sources/GraphSimulator.swift:55:27: [1;31merror: [1;39mno '.<' overloads produce result type that conforms to 'Sequence'[0;0m
+ [0;36m53 |[0;0m         // 2. Calculate Repulsion (Coulomb's Law)
+ [0;36m54 |[0;0m         for i in 0..<identifiers.count {
+ [0;36m55 |[0;0m             for j in (i+1).<identifiers.count {
+    [0;36m|[0;0m                           `- [1;31merror: [1;39mno '.<' overloads produce result type that conforms to 'Sequence'[0;0m
+ [0;36m56 |[0;0m                 let idA = identifiers[i]
+ [0;36m57 |[0;0m                 let idB = identifiers[j]
+
+Swift.SIMD2..<:2:20: [1;39mnote: [1;39mresult type 'SIMDMask<SIMD2<Float16.SIMDMaskScalar>>' (aka 'SIMDMask<SIMD2<Int16>>') of '.<' does not conform to 'Sequence'[0;0m
+[0;36m1 |[0;0m generic struct SIMD2 {
+[0;36m2 |[0;0m public static func .< (a: SIMD2<Scalar>, b: SIMD2<Scalar>) -> SIMDMask<SIMD2<Scalar>.MaskStorage>}
+  [0;36m|[0;0m                    |- [1;39mnote: [1;39mresult type 'SIMDMask<SIMD2<Float16.SIMDMaskScalar>>' (aka 'SIMDMask<SIMD2<Int16>>') of '.<' does not conform to 'Sequence'[0;0m
+  [0;36m|[0;0m                    `- [1;39mnote: [1;39mresult type 'SIMDMask<SIMD2<Float16.SIMDMaskScalar>>' (aka 'SIMDMask<SIMD2<Int16>>') of '.<' does not conform to 'Sequence'[0;0m
+[0;36m3 |[0;0m 
+
+Swift.SIMD4..<:2:20: [1;39mnote: [1;39mresult type 'SIMDMask<SIMD4<Float16.SIMDMaskScalar>>' (aka 'SIMDMask<SIMD4<Int16>>') of '.<' does not conform to 'Sequence'[0;0m
+[0;36m1 |[0;0m generic struct SIMD4 {
+[0;36m2 |[0;0m public static func .< (a: SIMD4<Scalar>, b: SIMD4<Scalar>) -> SIMDMask<SIMD4<Scalar>.MaskStorage>}
+  [0;36m|[0;0m                    |- [1;39mnote: [1;39mresult type 'SIMDMask<SIMD4<Float16.SIMDMaskScalar>>' (aka 'SIMDMask<SIMD4<Int16>>') of '.<' does not conform to 'Sequence'[0;0m
+  [0;36m|[0;0m                    `- [1;39mnote: [1;39mresult type 'SIMDMask<SIMD4<Float16.SIMDMaskScalar>>' (aka 'SIMDMask<SIMD4<Int16>>') of '.<' does not conform to 'Sequence'[0;0m
+[0;36m3 |[0;0m 
+
+Swift.SIMD8..<:2:20: [1;39mnote: [1;39mresult type 'SIMDMask<SIMD8<Float16.SIMDMaskScalar>>' (aka 'SIMDMask<SIMD8<Int16>>') of '.<' does not conform to 'Sequence'[0;0m
+[0;36m1 |[0;0m generic struct SIMD8 {
+[0;36m2 |[0;0m public static func .< (a: SIMD8<Scalar>, b: SIMD8<Scalar>) -> SIMDMask<SIMD8<Scalar>.MaskStorage>}
+  [0;36m|[0;0m                    |- [1;39mnote: [1;39mresult type 'SIMDMask<SIMD8<Float16.SIMDMaskScalar>>' (aka 'SIMDMask<SIMD8<Int16>>') of '.<' does not conform to 'Sequence'[0;0m
+  [0;36m|[0;0m                    `- [1;39mnote: [1;39mresult type 'SIMDMask<SIMD8<Float16.SIMDMaskScalar>>' (aka 'SIMDMask<SIMD8<Int16>>') of '.<' does not conform to 'Sequence'[0;0m
+[0;36m3 |[0;0m 
+
+Swift.SIMD16..<:2:20: [1;39mnote: [1;39mresult type 'SIMDMask<SIMD16<Float16.SIMDMaskScalar>>' (aka 'SIMDMask<SIMD16<Int16>>') of '.<' does not conform to 'Sequence'[0;0m
+[0;36m1 |[0;0m generic struct SIMD16 {
+[0;36m2 |[0;0m public static func .< (a: SIMD16<Scalar>, b: SIMD16<Scalar>) -> SIMDMask<SIMD16<Scalar>.MaskStorage>}
+  [0;36m|[0;0m                    |- [1;39mnote: [1;39mresult type 'SIMDMask<SIMD16<Float16.SIMDMaskScalar>>' (aka 'SIMDMask<SIMD16<Int16>>') of '.<' does not conform to 'Sequence'[0;0m
+  [0;36m|[0;0m                    `- [1;39mnote: [1;39mresult type 'SIMDMask<SIMD16<Float16.SIMDMaskScalar>>' (aka 'SIMDMask<SIMD16<Int16>>') of '.<' does not conform to 'Sequence'[0;0m
+[0;36m3 |[0;0m 
+
+Swift.SIMD32..<:2:20: [1;39mnote: [1;39mresult type 'SIMDMask<SIMD32<Float16.SIMDMaskScalar>>' (aka 'SIMDMask<SIMD32<Int16>>') of '.<' does not conform to 'Sequence'[0;0m
+[0;36m1 |[0;0m generic struct SIMD32 {
+[0;36m2 |[0;0m public static func .< (a: SIMD32<Scalar>, b: SIMD32<Scalar>) -> SIMDMask<SIMD32<Scalar>.MaskStorage>}
+  [0;36m|[0;0m                    |- [1;39mnote: [1;39mresult type 'SIMDMask<SIMD32<Float16.SIMDMaskScalar>>' (aka 'SIMDMask<SIMD32<Int16>>') of '.<' does not conform to 'Sequence'[0;0m
+  [0;36m|[0;0m                    `- [1;39mnote: [1;39mresult type 'SIMDMask<SIMD32<Float16.SIMDMaskScalar>>' (aka 'SIMDMask<SIMD32<Int16>>') of '.<' does not conform to 'Sequence'[0;0m
+[0;36m3 |[0;0m 
+
+Swift.SIMD64..<:2:20: [1;39mnote: [1;39mresult type 'SIMDMask<SIMD64<Float16.SIMDMaskScalar>>' (aka 'SIMDMask<SIMD64<Int16>>') of '.<' does not conform to 'Sequence'[0;0m
+[0;36m1 |[0;0m generic struct SIMD64 {
+[0;36m2 |[0;0m public static func .< (a: SIMD64<Scalar>, b: SIMD64<Scalar>) -> SIMDMask<SIMD64<Scalar>.MaskStorage>}
+  [0;36m|[0;0m                    |- [1;39mnote: [1;39mresult type 'SIMDMask<SIMD64<Float16.SIMDMaskScalar>>' (aka 'SIMDMask<SIMD64<Int16>>') of '.<' does not conform to 'Sequence'[0;0m
+  [0;36m|[0;0m                    `- [1;39mnote: [1;39mresult type 'SIMDMask<SIMD64<Float16.SIMDMaskScalar>>' (aka 'SIMDMask<SIMD64<Int16>>') of '.<' does not conform to 'Sequence'[0;0m
+[0;36m3 |[0;0m 
+
+Swift.SIMD3..<:2:20: [1;39mnote: [1;39mresult type 'SIMDMask<SIMD3<Float16.SIMDMaskScalar>>' (aka 'SIMDMask<SIMD3<Int16>>') of '.<' does not conform to 'Sequence'[0;0m
+[0;36m1 |[0;0m generic struct SIMD3 {
+[0;36m2 |[0;0m public static func .< (a: SIMD3<Scalar>, b: SIMD3<Scalar>) -> SIMDMask<SIMD3<Scalar>.MaskStorage>}
+  [0;36m|[0;0m                    |- [1;39mnote: [1;39mresult type 'SIMDMask<SIMD3<Float16.SIMDMaskScalar>>' (aka 'SIMDMask<SIMD3<Int16>>') of '.<' does not conform to 'Sequence'[0;0m
+  [0;36m|[0;0m                    `- [1;39mnote: [1;39mresult type 'SIMDMask<SIMD3<Float16.SIMDMaskScalar>>' (aka 'SIMDMask<SIMD3<Int16>>') of '.<' does not conform to 'Sequence'[0;0m
+[0;36m3 |[0;0m 
+
+Swift.SIMD2..<:2:20: [1;39mnote: [1;39mresult type 'SIMDMask<SIMD2<Float.SIMDMaskScalar>>' (aka 'SIMDMask<SIMD2<Int32>>') of '.<' does not conform to 'Sequence'[0;0m
+[0;36m1 |[0;0m generic struct SIMD2 {
+[0;36m2 |[0;0m public static func .< (a: SIMD2<Scalar>, b: SIMD2<Scalar>) -> SIMDMask<SIMD2<Scalar>.MaskStorage>}
+  [0;36m|[0;0m                    |- [1;39mnote: [1;39mresult type 'SIMDMask<SIMD2<Float.SIMDMaskScalar>>' (aka 'SIMDMask<SIMD2<Int32>>') of '.<' does not conform to 'Sequence'[0;0m
+  [0;36m|[0;0m                    `- [1;39mnote: [1;39mresult type 'SIMDMask<SIMD2<Float.SIMDMaskScalar>>' (aka 'SIMDMask<SIMD2<Int32>>') of '.<' does not conform to 'Sequence'[0;0m
+[0;36m3 |[0;0m 
+
+Swift.SIMD4..<:2:20: [1;39mnote: [1;39mresult type 'SIMDMask<SIMD4<Float.SIMDMaskScalar>>' (aka 'SIMDMask<SIMD4<Int32>>') of '.<' does not conform to 'Sequence'[0;0m
+[0;36m1 |[0;0m generic struct SIMD4 {
+[0;36m2 |[0;0m public static func .< (a: SIMD4<Scalar>, b: SIMD4<Scalar>) -> SIMDMask<SIMD4<Scalar>.MaskStorage>}
+  [0;36m|[0;0m                    |- [1;39mnote: [1;39mresult type 'SIMDMask<SIMD4<Float.SIMDMaskScalar>>' (aka 'SIMDMask<SIMD4<Int32>>') of '.<' does not conform to 'Sequence'[0;0m
+  [0;36m|[0;0m                    `- [1;39mnote: [1;39mresult type 'SIMDMask<SIMD4<Float.SIMDMaskScalar>>' (aka 'SIMDMask<SIMD4<Int32>>') of '.<' does not conform to 'Sequence'[0;0m
+[0;36m3 |[0;0m 
+
+Swift.SIMD8..<:2:20: [1;39mnote: [1;39mresult type 'SIMDMask<SIMD8<Float.SIMDMaskScalar>>' (aka 'SIMDMask<SIMD8<Int32>>') of '.<' does not conform to 'Sequence'[0;0m
+[0;36m1 |[0;0m generic struct SIMD8 {
+[0;36m2 |[0;0m public static func .< (a: SIMD8<Scalar>, b: SIMD8<Scalar>) -> SIMDMask<SIMD8<Scalar>.MaskStorage>}
+  [0;36m|[0;0m                    |- [1;39mnote: [1;39mresult type 'SIMDMask<SIMD8<Float.SIMDMaskScalar>>' (aka 'SIMDMask<SIMD8<Int32>>') of '.<' does not conform to 'Sequence'[0;0m
+  [0;36m|[0;0m                    `- [1;39mnote: [1;39mresult type 'SIMDMask<SIMD8<Float.SIMDMaskScalar>>' (aka 'SIMDMask<SIMD8<Int32>>') of '.<' does not conform to 'Sequence'[0;0m
+[0;36m3 |[0;0m 
+
+Swift.SIMD16..<:2:20: [1;39mnote: [1;39mresult type 'SIMDMask<SIMD16<Float.SIMDMaskScalar>>' (aka 'SIMDMask<SIMD16<Int32>>') of '.<' does not conform to 'Sequence'[0;0m
+[0;36m1 |[0;0m generic struct SIMD16 {
+[0;36m2 |[0;0m public static func .< (a: SIMD16<Scalar>, b: SIMD16<Scalar>) -> SIMDMask<SIMD16<Scalar>.MaskStorage>}
+  [0;36m|[0;0m                    |- [1;39mnote: [1;39mresult type 'SIMDMask<SIMD16<Float.SIMDMaskScalar>>' (aka 'SIMDMask<SIMD16<Int32>>') of '.<' does not conform to 'Sequence'[0;0m
+  [0;36m|[0;0m                    `- [1;39mnote: [1;39mresult type 'SIMDMask<SIMD16<Float.SIMDMaskScalar>>' (aka 'SIMDMask<SIMD16<Int32>>') of '.<' does not conform to 'Sequence'[0;0m
+[0;36m3 |[0;0m 
+
+Swift.SIMD32..<:2:20: [1;39mnote: [1;39mresult type 'SIMDMask<SIMD32<Float.SIMDMaskScalar>>' (aka 'SIMDMask<SIMD32<Int32>>') of '.<' does not conform to 'Sequence'[0;0m
+[0;36m1 |[0;0m generic struct SIMD32 {
+[0;36m2 |[0;0m public static func .< (a: SIMD32<Scalar>, b: SIMD32<Scalar>) -> SIMDMask<SIMD32<Scalar>.MaskStorage>}
+  [0;36m|[0;0m                    |- [1;39mnote: [1;39mresult type 'SIMDMask<SIMD32<Float.SIMDMaskScalar>>' (aka 'SIMDMask<SIMD32<Int32>>') of '.<' does not conform to 'Sequence'[0;0m
+  [0;36m|[0;0m                    `- [1;39mnote: [1;39mresult type 'SIMDMask<SIMD32<Float.SIMDMaskScalar>>' (aka 'SIMDMask<SIMD32<Int32>>') of '.<' does not conform to 'Sequence'[0;0m
+[0;36m3 |[0;0m 
+
+Swift.SIMD64..<:2:20: [1;39mnote: [1;39mresult type 'SIMDMask<SIMD64<Float.SIMDMaskScalar>>' (aka 'SIMDMask<SIMD64<Int32>>') of '.<' does not conform to 'Sequence'[0;0m
+[0;36m1 |[0;0m generic struct SIMD64 {
+[0;36m2 |[0;0m public static func .< (a: SIMD64<Scalar>, b: SIMD64<Scalar>) -> SIMDMask<SIMD64<Scalar>.MaskStorage>}
+  [0;36m|[0;0m                    |- [1;39mnote: [1;39mresult type 'SIMDMask<SIMD64<Float.SIMDMaskScalar>>' (aka 'SIMDMask<SIMD64<Int32>>') of '.<' does not conform to 'Sequence'[0;0m
+  [0;36m|[0;0m                    `- [1;39mnote: [1;39mresult type 'SIMDMask<SIMD64<Float.SIMDMaskScalar>>' (aka 'SIMDMask<SIMD64<Int32>>') of '.<' does not conform to 'Sequence'[0;0m
+[0;36m3 |[0;0m 
+
+Swift.SIMD3..<:2:20: [1;39mnote: [1;39mresult type 'SIMDMask<SIMD3<Float.SIMDMaskScalar>>' (aka 'SIMDMask<SIMD3<Int32>>') of '.<' does not conform to 'Sequence'[0;0m
+[0;36m1 |[0;0m generic struct SIMD3 {
+[0;36m2 |[0;0m public static func .< (a: SIMD3<Scalar>, b: SIMD3<Scalar>) -> SIMDMask<SIMD3<Scalar>.MaskStorage>}
+  [0;36m|[0;0m                    |- [1;39mnote: [1;39mresult type 'SIMDMask<SIMD3<Float.SIMDMaskScalar>>' (aka 'SIMDMask<SIMD3<Int32>>') of '.<' does not conform to 'Sequence'[0;0m
+  [0;36m|[0;0m                    `- [1;39mnote: [1;39mresult type 'SIMDMask<SIMD3<Float.SIMDMaskScalar>>' (aka 'SIMDMask<SIMD3<Int32>>') of '.<' does not conform to 'Sequence'[0;0m
+[0;36m3 |[0;0m 
+
+Swift.SIMD2..<:2:20: [1;39mnote: [1;39mresult type 'SIMDMask<SIMD2<Double.SIMDMaskScalar>>' (aka 'SIMDMask<SIMD2<Int64>>') of '.<' does not conform to 'Sequence'[0;0m
+[0;36m1 |[0;0m generic struct SIMD2 {
+[0;36m2 |[0;0m public static func .< (a: SIMD2<Scalar>, b: SIMD2<Scalar>) -> SIMDMask<SIMD2<Scalar>.MaskStorage>}
+  [0;36m|[0;0m                    |- [1;39mnote: [1;39mresult type 'SIMDMask<SIMD2<Double.SIMDMaskScalar>>' (aka 'SIMDMask<SIMD2<Int64>>') of '.<' does not conform to 'Sequence'[0;0m
+  [0;36m|[0;0m                    `- [1;39mnote: [1;39mresult type 'SIMDMask<SIMD2<Double.SIMDMaskScalar>>' (aka 'SIMDMask<SIMD2<Int64>>') of '.<' does not conform to 'Sequence'[0;0m
+[0;36m3 |[0;0m 
+
+Swift.SIMD4..<:2:20: [1;39mnote: [1;39mresult type 'SIMDMask<SIMD4<Double.SIMDMaskScalar>>' (aka 'SIMDMask<SIMD4<Int64>>') of '.<' does not conform to 'Sequence'[0;0m
+[0;36m1 |[0;0m generic struct SIMD4 {
+[0;36m2 |[0;0m public static func .< (a: SIMD4<Scalar>, b: SIMD4<Scalar>) -> SIMDMask<SIMD4<Scalar>.MaskStorage>}
+  [0;36m|[0;0m                    |- [1;39mnote: [1;39mresult type 'SIMDMask<SIMD4<Double.SIMDMaskScalar>>' (aka 'SIMDMask<SIMD4<Int64>>') of '.<' does not conform to 'Sequence'[0;0m
+  [0;36m|[0;0m                    `- [1;39mnote: [1;39mresult type 'SIMDMask<SIMD4<Double.SIMDMaskScalar>>' (aka 'SIMDMask<SIMD4<Int64>>') of '.<' does not conform to 'Sequence'[0;0m
+[0;36m3 |[0;0m 
+
+Swift.SIMD8..<:2:20: [1;39mnote: [1;39mresult type 'SIMDMask<SIMD8<Double.SIMDMaskScalar>>' (aka 'SIMDMask<SIMD8<Int64>>') of '.<' does not conform to 'Sequence'[0;0m
+[0;36m1 |[0;0m generic struct SIMD8 {
+[0;36m2 |[0;0m public static func .< (a: SIMD8<Scalar>, b: SIMD8<Scalar>) -> SIMDMask<SIMD8<Scalar>.MaskStorage>}
+  [0;36m|[0;0m                    |- [1;39mnote: [1;39mresult type 'SIMDMask<SIMD8<Double.SIMDMaskScalar>>' (aka 'SIMDMask<SIMD8<Int64>>') of '.<' does not conform to 'Sequence'[0;0m
+  [0;36m|[0;0m                    `- [1;39mnote: [1;39mresult type 'SIMDMask<SIMD8<Double.SIMDMaskScalar>>' (aka 'SIMDMask<SIMD8<Int64>>') of '.<' does not conform to 'Sequence'[0;0m
+[0;36m3 |[0;0m 
+
+Swift.SIMD16..<:2:20: [1;39mnote: [1;39mresult type 'SIMDMask<SIMD16<Double.SIMDMaskScalar>>' (aka 'SIMDMask<SIMD16<Int64>>') of '.<' does not conform to 'Sequence'[0;0m
+[0;36m1 |[0;0m generic struct SIMD16 {
+[0;36m2 |[0;0m public static func .< (a: SIMD16<Scalar>, b: SIMD16<Scalar>) -> SIMDMask<SIMD16<Scalar>.MaskStorage>}
+  [0;36m|[0;0m                    |- [1;39mnote: [1;39mresult type 'SIMDMask<SIMD16<Double.SIMDMaskScalar>>' (aka 'SIMDMask<SIMD16<Int64>>') of '.<' does not conform to 'Sequence'[0;0m
+  [0;36m|[0;0m                    `- [1;39mnote: [1;39mresult type 'SIMDMask<SIMD16<Double.SIMDMaskScalar>>' (aka 'SIMDMask<SIMD16<Int64>>') of '.<' does not conform to 'Sequence'[0;0m
+[0;36m3 |[0;0m 
+
+Swift.SIMD32..<:2:20: [1;39mnote: [1;39mresult type 'SIMDMask<SIMD32<Double.SIMDMaskScalar>>' (aka 'SIMDMask<SIMD32<Int64>>') of '.<' does not conform to 'Sequence'[0;0m
+[0;36m1 |[0;0m generic struct SIMD32 {
+[0;36m2 |[0;0m public static func .< (a: SIMD32<Scalar>, b: SIMD32<Scalar>) -> SIMDMask<SIMD32<Scalar>.MaskStorage>}
+  [0;36m|[0;0m                    |- [1;39mnote: [1;39mresult type 'SIMDMask<SIMD32<Double.SIMDMaskScalar>>' (aka 'SIMDMask<SIMD32<Int64>>') of '.<' does not conform to 'Sequence'[0;0m
+  [0;36m|[0;0m                    `- [1;39mnote: [1;39mresult type 'SIMDMask<SIMD32<Double.SIMDMaskScalar>>' (aka 'SIMDMask<SIMD32<Int64>>') of '.<' does not conform to 'Sequence'[0;0m
+[0;36m3 |[0;0m 
+
+Swift.SIMD64..<:2:20: [1;39mnote: [1;39mresult type 'SIMDMask<SIMD64<Double.SIMDMaskScalar>>' (aka 'SIMDMask<SIMD64<Int64>>') of '.<' does not conform to 'Sequence'[0;0m
+[0;36m1 |[0;0m generic struct SIMD64 {
+[0;36m2 |[0;0m public static func .< (a: SIMD64<Scalar>, b: SIMD64<Scalar>) -> SIMDMask<SIMD64<Scalar>.MaskStorage>}
+  [0;36m|[0;0m                    |- [1;39mnote: [1;39mresult type 'SIMDMask<SIMD64<Double.SIMDMaskScalar>>' (aka 'SIMDMask<SIMD64<Int64>>') of '.<' does not conform to 'Sequence'[0;0m
+  [0;36m|[0;0m                    `- [1;39mnote: [1;39mresult type 'SIMDMask<SIMD64<Double.SIMDMaskScalar>>' (aka 'SIMDMask<SIMD64<Int64>>') of '.<' does not conform to 'Sequence'[0;0m
+[0;36m3 |[0;0m 
+
+Swift.SIMD3..<:2:20: [1;39mnote: [1;39mresult type 'SIMDMask<SIMD3<Double.SIMDMaskScalar>>' (aka 'SIMDMask<SIMD3<Int64>>') of '.<' does not conform to 'Sequence'[0;0m
+[0;36m1 |[0;0m generic struct SIMD3 {
+[0;36m2 |[0;0m public static func .< (a: SIMD3<Scalar>, b: SIMD3<Scalar>) -> SIMDMask<SIMD3<Scalar>.MaskStorage>}
+  [0;36m|[0;0m                    |- [1;39mnote: [1;39mresult type 'SIMDMask<SIMD3<Double.SIMDMaskScalar>>' (aka 'SIMDMask<SIMD3<Int64>>') of '.<' does not conform to 'Sequence'[0;0m
+  [0;36m|[0;0m                    `- [1;39mnote: [1;39mresult type 'SIMDMask<SIMD3<Double.SIMDMaskScalar>>' (aka 'SIMDMask<SIMD3<Int64>>') of '.<' does not conform to 'Sequence'[0;0m
+[0;36m3 |[0;0m 
+[4/4] Compiling NibblewayStudioCore NibblewayStudioApp.swift
+/Users/rickhohler/CODE/GITHUB/Nibbleware/nibbleway/studio/Sources/NibblewayStudioApp.swift:10:10: [1;31merror: [1;39mvalue of type 'WindowGroup<ContentView>' has no member 'modelContainer'[0;0m
+ [0;36m8 |[0;0m             ContentView()
+ [0;36m9 |[0;0m         }
+[0;36m10 |[0;0m         .[4;39mmodelContainer[0;0m(for: ExecutionRecord.self)
+   [0;36m|[0;0m          `- [1;31merror: [1;39mvalue of type 'WindowGroup<ContentView>' has no member 'modelContainer'[0;0m
+[0;36m11 |[0;0m     }
+[0;36m12 |[0;0m }

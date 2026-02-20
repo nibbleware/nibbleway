@@ -1,0 +1,36 @@
+version: "1.0"
+contexts:
+  - id: "sales"
+    name: "Sales Domain"
+    description: "Leads, Opportunities, and Customer Acquisition"
+    domain: "CRM"
+  - id: "support"
+    name: "Support Domain"
+    description: "Tickets, Case Management, and Customer Satisfaction"
+    domain: "HelpDesk"
+  - id: "logistics"
+    name: "Logistics Domain"
+    description: "Warehousing, Shipping, and Order Fulfillment"
+    domain: "SupplyChain"
+
+terms:
+  - id: "term-cust-sales"
+    term: "Customer"
+    definition: "A lead that has successfully converted through a signed contract."
+    context_id: "sales"
+    synonyms: ["Account", "Client"]
+  - id: "term-cust-support"
+    term: "Customer"
+    definition: "An active user of the system entitled to technical assistance via a valid subscription."
+    context_id: "support"
+    synonyms: ["User", "Subscriber"]
+  - id: "term-cust-logistics"
+    term: "Customer"
+    definition: "The recipient address and entity responsible for receiving physical goods."
+    context_id: "logistics"
+    synonyms: ["Consignee", "ShipTo"]
+  - id: "term-blueprint"
+    term: "Blueprint"
+    definition: "The authoritative C4 model representation of a system's architecture."
+    context_id: null
+    synonyms: ["Architecture Design", "System Map"]

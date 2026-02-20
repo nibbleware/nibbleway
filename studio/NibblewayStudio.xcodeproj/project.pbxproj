@@ -1,0 +1,369 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		018D8876C8E14C5487621E8E /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7FC2A5783CB6E030CB16ED /* Models.swift */; };
+		12FDDAD7FB07E1FDEF09E79A /* GraphSimulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E287E775D5D96FB812ABB09 /* GraphSimulator.swift */; };
+		32CF5C73B1D976676FD7BACF /* PklBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756B013078FC2CF5FFD0BA79 /* PklBridge.swift */; };
+		4090A1EAD418167E68E20668 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA79EF0356517E07C691CD1A /* Persistence.swift */; };
+		56D43C410B43AE04E55BA610 /* MCP in Frameworks */ = {isa = PBXBuildFile; productRef = 4926FB80A39EA46F56E61A70 /* MCP */; };
+		741C6D27FC00057C9E1DC8E1 /* Yams in Frameworks */ = {isa = PBXBuildFile; productRef = D6D9885BF0B804D60C009935 /* Yams */; };
+		86968A9F4C5908105A1EC856 /* ContentEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A639D55B5184E48151076661 /* ContentEngine.swift */; };
+		8A901E1160CAF7DF6B36D155 /* ArchitectContextServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0F90B565E6FB5C5731052C /* ArchitectContextServer.swift */; };
+		A9C22A99F952236473559C34 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066CCD981A70347FD28A6294 /* ContentView.swift */; };
+		C6ADEC757200D0C758C91DD4 /* ArchitectIntents.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E44BAC1D4814BD074A0C6D /* ArchitectIntents.swift */; };
+		CC138BDFA6B033C22A471AB6 /* MCPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFE6469C9E7C283AB6B82CB /* MCPManager.swift */; };
+		DD496CBB746EB39E6724BACC /* NibblewayStudioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE628A2158A41655EE3A75CE /* NibblewayStudioApp.swift */; };
+		F57650FDAB1FA33890608C5F /* StudioViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12737697E6424E8A6983D32B /* StudioViewModel.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		066CCD981A70347FD28A6294 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		0A7FC2A5783CB6E030CB16ED /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		12737697E6424E8A6983D32B /* StudioViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudioViewModel.swift; sourceTree = "<group>"; };
+		1E287E775D5D96FB812ABB09 /* GraphSimulator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphSimulator.swift; sourceTree = "<group>"; };
+		756B013078FC2CF5FFD0BA79 /* PklBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PklBridge.swift; sourceTree = "<group>"; };
+		7BA286A6E0DBE9AC82A0B0CB /* NibblewayStudio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NibblewayStudio.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B0F90B565E6FB5C5731052C /* ArchitectContextServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchitectContextServer.swift; sourceTree = "<group>"; };
+		A639D55B5184E48151076661 /* ContentEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentEngine.swift; sourceTree = "<group>"; };
+		CE628A2158A41655EE3A75CE /* NibblewayStudioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibblewayStudioApp.swift; sourceTree = "<group>"; };
+		F9E44BAC1D4814BD074A0C6D /* ArchitectIntents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchitectIntents.swift; sourceTree = "<group>"; };
+		FA79EF0356517E07C691CD1A /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		FDFE6469C9E7C283AB6B82CB /* MCPManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MCPManager.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		995B040620A9F23F2D83F1CC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				741C6D27FC00057C9E1DC8E1 /* Yams in Frameworks */,
+				56D43C410B43AE04E55BA610 /* MCP in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		345766FFDC1E0B0F22E0AB5F = {
+			isa = PBXGroup;
+			children = (
+				39F58CD5E835270EBA7A64BA /* Sources */,
+				C89CEDC03AC0B731788F0241 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		39F58CD5E835270EBA7A64BA /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				9B0F90B565E6FB5C5731052C /* ArchitectContextServer.swift */,
+				F9E44BAC1D4814BD074A0C6D /* ArchitectIntents.swift */,
+				A639D55B5184E48151076661 /* ContentEngine.swift */,
+				066CCD981A70347FD28A6294 /* ContentView.swift */,
+				1E287E775D5D96FB812ABB09 /* GraphSimulator.swift */,
+				FDFE6469C9E7C283AB6B82CB /* MCPManager.swift */,
+				0A7FC2A5783CB6E030CB16ED /* Models.swift */,
+				CE628A2158A41655EE3A75CE /* NibblewayStudioApp.swift */,
+				FA79EF0356517E07C691CD1A /* Persistence.swift */,
+				756B013078FC2CF5FFD0BA79 /* PklBridge.swift */,
+				12737697E6424E8A6983D32B /* StudioViewModel.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		C89CEDC03AC0B731788F0241 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7BA286A6E0DBE9AC82A0B0CB /* NibblewayStudio.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		12FFFCF4F5B1367F8927814F /* NibblewayStudio */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 70ABB7338E49B993AB667E46 /* Build configuration list for PBXNativeTarget "NibblewayStudio" */;
+			buildPhases = (
+				B22BF29080176BB85FD8973F /* Sources */,
+				995B040620A9F23F2D83F1CC /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NibblewayStudio;
+			packageProductDependencies = (
+				D6D9885BF0B804D60C009935 /* Yams */,
+				4926FB80A39EA46F56E61A70 /* MCP */,
+			);
+			productName = NibblewayStudio;
+			productReference = 7BA286A6E0DBE9AC82A0B0CB /* NibblewayStudio.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E4FC34A07561A6C6D79B1FC1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+			};
+			buildConfigurationList = 7A5CBB5CFE81FDE85149F0AE /* Build configuration list for PBXProject "NibblewayStudio" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 345766FFDC1E0B0F22E0AB5F;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				59B2060D28DF8BE57613A89A /* XCRemoteSwiftPackageReference "Yams" */,
+				1AEBFA4E5CEC67231600DA3C /* XCRemoteSwiftPackageReference "swift-sdk" */,
+			);
+			preferredProjectObjectVersion = 77;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				12FFFCF4F5B1367F8927814F /* NibblewayStudio */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B22BF29080176BB85FD8973F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8A901E1160CAF7DF6B36D155 /* ArchitectContextServer.swift in Sources */,
+				C6ADEC757200D0C758C91DD4 /* ArchitectIntents.swift in Sources */,
+				86968A9F4C5908105A1EC856 /* ContentEngine.swift in Sources */,
+				A9C22A99F952236473559C34 /* ContentView.swift in Sources */,
+				12FDDAD7FB07E1FDEF09E79A /* GraphSimulator.swift in Sources */,
+				CC138BDFA6B033C22A471AB6 /* MCPManager.swift in Sources */,
+				018D8876C8E14C5487621E8E /* Models.swift in Sources */,
+				DD496CBB746EB39E6724BACC /* NibblewayStudioApp.swift in Sources */,
+				4090A1EAD418167E68E20668 /* Persistence.swift in Sources */,
+				32CF5C73B1D976676FD7BACF /* PklBridge.swift in Sources */,
+				F57650FDAB1FA33890608C5F /* StudioViewModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		22ABBD6E9B44A939E13C6790 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nibbleware.NibblewayStudio;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		3CFF8086BBA3D2B2C488FB7A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		7A01A5BDF722CF842D5189FF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nibbleware.NibblewayStudio;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		A911CC1330210E8F80F04C30 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		70ABB7338E49B993AB667E46 /* Build configuration list for PBXNativeTarget "NibblewayStudio" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7A01A5BDF722CF842D5189FF /* Debug */,
+				22ABBD6E9B44A939E13C6790 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		7A5CBB5CFE81FDE85149F0AE /* Build configuration list for PBXProject "NibblewayStudio" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A911CC1330210E8F80F04C30 /* Debug */,
+				3CFF8086BBA3D2B2C488FB7A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1AEBFA4E5CEC67231600DA3C /* XCRemoteSwiftPackageReference "swift-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/modelcontextprotocol/swift-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.10.2;
+			};
+		};
+		59B2060D28DF8BE57613A89A /* XCRemoteSwiftPackageReference "Yams" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jpsim/Yams.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4926FB80A39EA46F56E61A70 /* MCP */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1AEBFA4E5CEC67231600DA3C /* XCRemoteSwiftPackageReference "swift-sdk" */;
+			productName = MCP;
+		};
+		D6D9885BF0B804D60C009935 /* Yams */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 59B2060D28DF8BE57613A89A /* XCRemoteSwiftPackageReference "Yams" */;
+			productName = Yams;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = E4FC34A07561A6C6D79B1FC1 /* Project object */;
+}

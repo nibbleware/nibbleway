@@ -1,0 +1,52 @@
+# NIBBLEWAY ENTERPRISE BLUEPRINT (Level 1)
+# Standard: C4 System Context Diagram
+
+version: "1.0"
+system:
+  name: "Global Logistics Mesh"
+  description: "Real-time supply chain orchestration and routing."
+
+containers:
+  # INTERNAL SYSTEM BOUNDARY
+  - id: "routing-engine"
+    name: "Core Routing Engine"
+    type: "System"
+    technology: "Swift-on-Server"
+    category: "Orchestration"
+
+  # VENDORS (EXTERNAL SYSTEMS)
+  - id: "aws-sns"
+    name: "Cloud Messenger"
+    type: "Vendor Service"
+    category: "Notifications"
+    vendor: "Amazon SNS"
+    technology: "AWS SDK"
+
+  - id: "google-maps"
+    name: "Geospatial Data"
+    type: "Vendor Service"
+    category: "Map Engine"
+    vendor: "Google Cloud"
+    technology: "Maps API"
+
+  # ACTORS
+  - id: "fleet-operator"
+    name: "Fleet Operator"
+    type: "Actor"
+    technology: "Web Dashboard"
+
+relationships:
+  - source: "fleet-operator"
+    destination: "routing-engine"
+    description: "Monitors fleet status"
+    protocol: "Websockets"
+
+  - source: "routing-engine"
+    destination: "google-maps"
+    description: "Calculates optimal paths"
+    protocol: "JSON/HTTPS"
+
+  - source: "routing-engine"
+    destination: "aws-sns"
+    description: "Dispatches alerts to drivers"
+    protocol: "gRPC"

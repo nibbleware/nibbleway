@@ -1,47 +1,59 @@
-# Nibbleway Blueprint Schema (v0.1)
+# Nibbleway System Definition (C4 Model)
+# Standard: C4 Model (Context, Containers, Components)
 
-version: "0.1"
-project: "my-agent-system"
+version: "1.0"
+system:
+  name: "Customer Support System"
+  description: "Automated support ticketing and billing."
 
-# 1. Agents: The actors in the system
-agents:
+# Level 2: Containers (Agents are Containers)
+containers:
   - id: "triage-agent"
     name: "Triage Agent"
-    model: "claude-3-5-sonnet-20240620"
-    system_prompt: "You are a helpful triage assistant. Classify incoming requests."
-    # capabilities: Defines what this agent is allowed to do
-    capabilities:
-      permissions:
-        - "read-only" # Can read context, cannot call write tools
-      allowed_tools:
-        - "linear_read"
-        - "github_read"
+    type: "Agent"
+    technology: "OpenAI GPT-4o"
+    # Interface Definition (Standard OpenAPI)
+    api_spec: "./specs/triage-agent-openapi.json" 
 
   - id: "billing-agent"
     name: "Billing Specialist"
-    model: "gpt-4o"
-    system_prompt: "You resolve billing disputes."
-    capabilities:
-      permissions:
-        - "write"
-      allowed_tools:
-        - "stripe_refund"
-        - "stripe_invoice"
+    type: "Agent"
+    technology: "Anthropic Claude 3.5"
+    api_spec: "./specs/billing-agent-openapi.json"
 
-# 2. Flows: The allowed communication paths
-flows:
-  - from: "triage-agent"
-    to: "billing-agent"
-    condition: "topic == 'billing'"
+  - id: "stripe-integration"
+    name: "Stripe Tool Server"
+    type: "MCP Server"
+    technology: "Node.js"
+    api_spec: "./specs/stripe-mcp-openapi.json"
+    execution:
+      type: "local"
+      command: "npx"
+      args: ["-y", "@modelcontextprotocol/server-stripe"]
+      env:
+        STRIPE_KEY: "${env.STRIPE_KEY}"
 
-# 3. Rails: Global or specific guardrails
-rails:
+  - id: "push-service"
+    name: "Enterprise Push"
+    type: "Vendor Service"
+    category: "Push Notifications"
+    vendor: "Amazon SNS"
+    technology: "AWS SDK"
+
+# Level 2 Relations: Flows
+relationships:
+  - source: "triage-agent"
+    destination: "billing-agent"
+    description: "Hands off billing-related tickets"
+    protocol: "Agent-to-Agent (MCP)"
+
+  - source: "billing-agent"
+    destination: "stripe-integration"
+    description: "Refunds customers"
+    protocol: "MCP Tool Call"
+
+# Level 3: Rails (Policies defined via Standard Policy-as-Code, e.g., OPA/Rego)
+policies:
   - id: "no-pii"
-    type: "pii_scrub"
-    sensitivity: "high"
-    action: "redact" # or 'block'
-
-  - id: "budget-limit"
-    type: "cost_control"
-    limit_usd: 5.00
-    window: "daily"
+    format: "rego"
+    source: "./policies/pii.rego"

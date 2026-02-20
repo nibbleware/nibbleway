@@ -1,0 +1,172 @@
+# Nibbleway Architectural Governance Registry
+# This file defines the mandated stacks and policies for the organization.
+
+version: "1.0"
+
+# Architectural Philosophy & Guiding Principles
+philosophy:
+  missionStatement: "To give software architects superpowers by building resilient, observable, and semantically grounded enterprise systems."
+  principles:
+    - id: "solid"
+      name: "SOLID Principles"
+      description: "Five design principles intended to make software designs more understandable, flexible, and maintainable."
+      impact: "High"
+      resources: ["https://en.wikipedia.org/wiki/SOLID"]
+    - id: "functional-context"
+      name: "Functional Core, Imperative Shell"
+      description: "Keep business logic pure and functional, while isolating side effects to the outer edges of the system."
+      impact: "Critical"
+    - id: "twelve-factor"
+      name: "The 12-Factor App"
+      description: "A methodology for building software-as-a-service apps that use declarative formats for setup automation."
+      impact: "High"
+      resources: ["https://12factor.net"]
+    - id: "reduction-first"
+      name: "Reduction First"
+      description: "Prioritize behavior over structure. Delete what is not needed. Minimize surface area."
+      impact: "Critical"
+
+# Enterprise Technical Stack Catalog (Approved & Sanctioned)
+techCatalog:
+  - id: "mobile-stack"
+    name: "Mobile Development"
+    technologies:
+      - id: "swift"
+        name: "Swift"
+        category: "Language"
+        status: "Approved"
+        recommendedVersion: "6.0"
+        description: "Mandated for all iOS development."
+      - id: "kotlin"
+        name: "Kotlin"
+        category: "Language"
+        status: "Approved"
+        recommendedVersion: "2.0"
+        description: "Mandated for all Android development."
+  - id: "backend-stack"
+    name: "Cloud Backend"
+    technologies:
+      - id: "go"
+        name: "Go"
+        category: "Language"
+        status: "Approved"
+        recommendedVersion: "1.23"
+        description: "Preferred for high-performance microservices."
+      - id: "grpc"
+        name: "gRPC"
+        category: "Communication"
+        status: "Approved"
+        description: "Mandated for inter-service communication."
+      - id: "postgresql"
+        name: "PostgreSQL"
+        category: "Database"
+        status: "Approved"
+        recommendedVersion: "16"
+        description: "Standard relational database."
+
+# Centralized Policies
+policies:
+  - id: "swift-mvvm-c"
+    name: "MVVM-C (Model-View-ViewModel-Coordinator)"
+    description: "The mandated architectural policy for all native iOS Swift code."
+    implementationGuidelines: |
+      1. Navigation: Must be handled by Coordinator objects.
+      2. Business Logic: Must reside in ViewModels.
+      3. UI: Must use SwiftUI Views.
+      4. State: Use @Published or Observable classes.
+
+  - id: "android-mvi"
+    name: "MVI (Model-View-Intent)"
+    description: "Mandated pattern for Android development."
+    implementationGuidelines: "Unidirectional data flow using Compose and ViewModels."
+
+# Platform Stacks
+platforms:
+  - id: "ios"
+    name: "Enterprise iOS Stack"
+    description: "The official Nibbleware stack for native iOS development."
+    tools:
+      - name: "Xcode"
+        versionRequirement: ">= 16.3"
+    languages:
+      - name: "Swift"
+        versionRequirement: ">= 6.0"
+    policies:
+      - "swift-mvvm-c"
+
+  - id: "android"
+    name: "Enterprise Android Stack"
+    description: "The official Nibbleware stack for native Android development."
+    tools:
+      - name: "Android Studio"
+        versionRequirement: ">= Ladybug"
+    languages:
+      - name: "Kotlin"
+        versionRequirement: ">= 2.0"
+    policies:
+      - "android-mvi"
+
+# Enterprise Data Flows (C4 Levels)
+flows:
+  - id: "onboarding-flow"
+    name: "Customer Onboarding"
+    description: "End-to-end data flow for new customer registrations."
+    type: "logicalFlow"
+    steps:
+      - id: "step-1"
+        sequence: 1
+        source: "mobile-app"
+        destination: "identity-service"
+        operation: "Validate Identity"
+        data: "KYC Documents"
+      - id: "step-2"
+        sequence: 2
+        source: "identity-service"
+        destination: "customer-db"
+        operation: "Store Profile"
+        data: "Verified Identity"
+
+  - id: "onboarding-physical"
+    name: "Customer Onboarding (Physical)"
+    description: "Technical implementation details for onboarding."
+    type: "physicalFlow"
+    steps:
+      - id: "p-step-1"
+        sequence: 1
+        source: "mobile-app"
+        destination: "api-gateway"
+        operation: "POST /v1/onboard"
+        data: "JSON (multipart/form-data)"
+      - id: "p-step-2"
+        sequence: 2
+        source: "api-gateway"
+        destination: "identity-microservice"
+        operation: "gRPC: Verify"
+        data: "Protobuf"
+ 
+# Context-Aware AI Agent Rule Sets (Guardrails)
+agentRuleSets:
+  - id: "ios-agent-rules"
+    name: "Enterprise iOS Standard"
+    context: "iOS"
+    rules:
+      - id: "ios-r1"
+        category: "Architecture"
+        instruction: "MVVM-C is mandatory. No business logic in Views. No navigation logic in ViewModels."
+      - id: "ios-r2"
+        category: "Concurrency"
+        instruction: "Use Swift 6 Concurrency (async/await). Avoid DispatchQueues unless bridging legacy code."
+      - id: "ios-r3"
+        category: "UI"
+        instruction: "Use SwiftUI for all new features. UIKit is for legacy maintenance only."
+
+  - id: "go-agent-rules"
+    name: "Enterprise Go/Backend Standard"
+    context: "Go-Backend"
+    rules:
+      - id: "go-r1"
+        category: "Communication"
+        instruction: "Inter-service calls MUST use gRPC with Protobuf. No internal REST APIs."
+      - id: "go-r2"
+        category: "Error Handling"
+        instruction: "Check all errors explicitly. Do not use panics for flow control."

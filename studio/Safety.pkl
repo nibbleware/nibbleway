@@ -1,0 +1,16 @@
+module nibbleway.policies.Safety
+
+id = "architect-pro-v1"
+description = "Professional Architect Safety Suite"
+enabled = true
+
+scrubbing_rules {
+  new {
+    pattern = "[0-9]{3}-[0-9]{2}-[0-9]{4}"
+    replacement = "[SSN-REDACTED]"
+  }
+  new {
+    pattern = "(?i)password|secret|token"
+    replacement = "[CREDENTIAL-STRIP]"
+  }
+}

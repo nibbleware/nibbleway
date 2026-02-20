@@ -1,0 +1,26 @@
+name: NibblewayStudio
+options:
+  bundleIdPrefix: com.nibbleware
+targets:
+  NibblewayStudio:
+    type: application
+    platform: macOS
+    deploymentTarget: "15.0"
+    sources: [Sources]
+    info:
+      path: Info.plist
+      properties:
+        LSMinimumSystemVersion: "15.0"
+        CFBundleShortVersionString: "0.1.0"
+        CFBundleVersion: "1"
+    dependencies:
+      - package: Yams
+      - package: swift-sdk
+        product: MCP
+packages:
+  Yams:
+    url: https://github.com/jpsim/Yams.git
+    from: 5.0.0
+  swift-sdk:
+    url: https://github.com/modelcontextprotocol/swift-sdk.git
+    from: 0.10.2

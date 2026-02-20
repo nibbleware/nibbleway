@@ -1,0 +1,25 @@
+# Apple & Swift Implementation Standards
+
+You must strictly adhere to these standards for all Swift and SwiftUI development in the Nibbleway project.
+
+## 1. Swift API Design Guidelines
+Follow the [Official Swift API Design Guidelines](https://www.swift.org/documentation/api-design-guidelines/).
+- **Clarity at point of use** is the highest priority.
+- Omit needless words (e.g., `blueprint.name` instead of `blueprint.blueprintName`).
+- Names should describe the **role** of the entity, not its type.
+- Use **Argument Labels** to make call sites read like sentences: `move(to: destination)` instead of `moveTo(destination)`.
+
+## 2. SwiftUI & Architecture (MVVM-E)
+- **MVVM-E**: Decouple heavy background logic, simulations, or network protocols into standalone **Engines**. ViewModels must only coordinate UI state.
+- **State Management**: Use `@StateObject` for ownership and `@ObservedObject` for dependency injection. Favor `@Environment` for cross-cutting state.
+- **Idiomatic Views**: Use `some View`, `.task` for async work, and view modifiers for styling.
+- **Pop over OOP**: Use Protocols and Extensions to share capabilities; avoid deep class hierarchies.
+
+## 3. Naming Convention
+- Types/Protocols: `UpperCamelCase`.
+- Variables/Functions: `lowerCamelCase`.
+- Booleans: Should read as assertions (e.g., `isActive`, `hasChanges`, `canExport`).
+
+## 4. Documentation
+- Document public APIs using triple-slash `///` with proper parameter/return value descriptions.
+- Comments should explain "Why", not "What" (the code should explain the "What").
